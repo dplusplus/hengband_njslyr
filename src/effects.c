@@ -5399,7 +5399,7 @@ int take_hit(int damage_type, int damage, cptr hit_from, int monspell)
 				do
 				{
 #ifdef JP
-					while (!get_string(winning_seppuku ? "¼­À¤¤Î¶ç: " : "ÃÇËöËâ¤Î¶«¤Ó: ", death_message, 1024)) ;
+					while (!get_string(winning_seppuku ? (IS_COMBAT_NINJA() ? "¥Ï¥¤¥¯: " :"¼­À¤¤Î¶ç: ") : "ÃÇËöËâ¤Î¶«¤Ó: ", death_message, 1024)) ;
 #else
 					while (!get_string("Last word: ", death_message, 1024)) ;
 #endif

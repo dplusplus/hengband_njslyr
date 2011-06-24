@@ -1718,6 +1718,21 @@ void monster_desc(char *desc, monster_type *m_ptr, int mode)
 #endif
 			}
 
+			else if (IS_COMBAT_NINJA()){
+#ifdef JP
+				char *t;
+				strcpy(buf, name);
+				t = buf;
+				while (strncmp(t, "』", 2) && *t) t++;
+				if (*t)
+				{
+					*t = '\0';
+					(void)sprintf(desc, "%s=サン』", buf);
+				}
+#else
+				(void)strcpy(desc, name);
+#endif
+			}
 			else
 			{
 				(void)strcpy(desc, name);

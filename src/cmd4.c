@@ -4824,7 +4824,7 @@ void do_cmd_version(void)
 
 	/* Silly message */
 #ifdef JP
-	msg_format("ÊÑ¶òÈÚÅÜ(Hengband) %d.%d.%d",
+	msg_format("Ç¦»¦ÈÚÅÜ(Hengband_NJSLYR) %d.%d.%d-0.0.1",
 		    FAKE_VER_MAJOR-10, FAKE_VER_MINOR, FAKE_VER_PATCH);
 #else
 	msg_format("You are playing Hengband %d.%d.%d.",
@@ -5069,7 +5069,7 @@ void do_cmd_feeling(void)
 	/* Display the feeling */
 	if (p_ptr->muta3 & MUT3_GOOD_LUCK)
 		msg_print(do_cmd_feeling_text_lucky[p_ptr->feeling]);
-	else if (p_ptr->pseikaku == SEIKAKU_COMBAT ||
+	else if ((p_ptr->pseikaku == SEIKAKU_COMBAT && !IS_COMBAT_NINJA()) ||
 		 inventory[INVEN_BOW].name1 == ART_CRIMSON)
 		msg_print(do_cmd_feeling_text_combat[p_ptr->feeling]);
 	else

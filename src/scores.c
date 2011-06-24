@@ -422,7 +422,7 @@ if (highscore_fd < 0) quit("スコア・ファイルが使用できません。");
 bool send_world_score(bool do_send)
 {
 #ifdef WORLD_SCORE
-	if(send_score && do_send)
+	if(FALSE && send_score && do_send)
 	{
 		if(easy_band)
 		{

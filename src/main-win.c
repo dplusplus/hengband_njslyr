@@ -3002,7 +3002,7 @@ static void init_windows(void)
 	td = &data[0];
 	WIPE(td, term_data);
 #ifdef JP
-	td->s = "ÊÑ¶òÈÚÅÜ";
+	td->s = "Ç¦»¦ÈÚÅÜ";
 #else
 	td->s = angband_term_name[0];
 #endif

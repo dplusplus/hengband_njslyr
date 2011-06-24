@@ -4073,7 +4073,7 @@ special_menu_naiyou special_menu_info[] =
 	{"技/特殊能力", 0, 0, MENU_CLASS, CLASS_BERSERKER},
 	{"技術/特殊能力", 0, 0, MENU_CLASS, CLASS_SMITH},
 	{"鏡魔法/特殊能力", 0, 0, MENU_CLASS, CLASS_MIRROR_MASTER},
-	{"忍術/特殊能力", 0, 0, MENU_CLASS, CLASS_NINJA},
+	{"ジツ/特殊能力", 0, 0, MENU_CLASS, CLASS_NINJA},
 	{"広域マップ(<)", 2, 6, MENU_WILD, FALSE},
 	{"通常マップ(>)", 2, 7, MENU_WILD, TRUE},
 	{"", 0, 0, 0, 0},

@@ -3383,6 +3383,11 @@ put_str("職業  :", 5, 1);
 	put_str("Class :", 5, 1);
 #endif
 
+	if (IS_COMBAT_NINJA()) {
+		strcpy(tmp, player_name);
+		strcat(tmp, "=サン");
+	}
+	else {
 	strcpy(tmp,ap_ptr->title);
 #ifdef JP
 	if(ap_ptr->no == 1)
@@ -3391,6 +3396,7 @@ put_str("職業  :", 5, 1);
 		strcat(tmp," ");
 #endif
 	strcat(tmp,player_name);
+	}
 
 	c_put_str(TERM_L_BLUE, tmp, 1, 34);
 	c_put_str(TERM_L_BLUE, sp_ptr->title, 3, 9);
@@ -3756,6 +3762,9 @@ void display_player(int mode)
 	{
 		/* Name, Sex, Race, Class */
 #ifdef JP
+		if(IS_COMBAT_NINJA())
+			sprintf(tmp, "%s=サン", player_name);
+		else
 		sprintf(tmp, "%s%s%s", ap_ptr->title, ap_ptr->no == 1 ? "の":"", player_name);
 #else
 		sprintf(tmp, "%s %s", ap_ptr->title, player_name);
@@ -3763,6 +3772,9 @@ void display_player(int mode)
 
 		display_player_one_line(ENTRY_NAME, tmp, TERM_L_BLUE);
 		display_player_one_line(ENTRY_SEX, sp_ptr->title, TERM_L_BLUE);
+		if (p_ptr->psex == SEX_FEMALE && p_ptr->prace == RACE_ANDROID)
+			display_player_one_line(ENTRY_RACE, "オイランドロイド", TERM_L_BLUE);
+		else
 		display_player_one_line(ENTRY_RACE, (p_ptr->mimic_form ? mimic_info[p_ptr->mimic_form].title : rp_ptr->title), TERM_L_BLUE);
 		display_player_one_line(ENTRY_CLASS, cp_ptr->title, TERM_L_BLUE);
 
@@ -6832,6 +6844,9 @@ static void print_tomb(void)
 		put_str(buf, 17, 11);
 
 #ifdef JP
+		if(IS_COMBAT_NINJA())
+			msg_format("サヨナラ、%s=サン!", player_name);
+		else
 		msg_format("さようなら、%s!", player_name);
 #else
 		msg_format("Goodbye, %s!", player_name);

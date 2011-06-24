@@ -254,7 +254,7 @@ mind_power mind_powers[5] =
       { 34, 35,  50, "霧隠れ"},
       { 38, 40,  60, "煉獄火炎"},
       { 41, 50,  55, "分身"},
-      { 99,  0,   0, ""},
+      { 50,  0,   0, "自爆"},
 #else
       {  1,  1,  20, "Create Darkness"},
       {  2,  2,  25, "Detect Near"},
@@ -276,7 +276,7 @@ mind_power mind_powers[5] =
       { 34, 35,  50, "Hide in Mist"},
       { 38, 40,  60, "Rengoku-Kaen"},
       { 41, 50,  55, "Bunshin"},
-      { 99,  0,   0, ""},
+      { 50,  0,   0, "Jibaku"},
 #endif
       
     }
@@ -500,7 +500,8 @@ void mindcraft_info(char *p, int use_mind, int power)
 	  {
 	    use_mind = MIND_NINJUTSU;
 #ifdef JP
-	    p = "忍術";
+		
+	    p = IS_COMBAT_NINJA() ? "ジツ" : "忍術";
 #else
 	    p = "ninjutsu";
 #endif
@@ -1520,7 +1521,7 @@ msg_print("なに？");
  */
 static bool cast_ninja_spell(int spell)
 {
-	int x, y;
+	int x, y, i;
 	int dir;
 	int plev = p_ptr->lev;
 
@@ -1778,6 +1779,43 @@ msg_print("その方向にはモンスターはいません。");
 	}
 	case 19:
 		set_multishadow(6+randint1(6), FALSE);
+		break;
+	
+	case 20:
+#ifdef JP
+	if (!get_check("本当に自爆しますか？")) return NULL;
+#else
+	if (!get_check("Do you really want to commit suicide? ")) return NULL;
+#endif
+				/* Special Verification for suicide */
+#ifdef JP
+	prt("確認のため '@' を押して下さい。", 0, 0);
+#else
+			prt("Please verify SUICIDE by typing the '@' sign: ", 0, 0);
+#endif
+	
+			flush();
+			i = inkey();
+			prt("", 0, 0);
+			if (i != '@') return NULL;
+			if (p_ptr->total_winner)
+			{
+				take_hit(DAMAGE_FORCE, 9999, "Seppuku", -1);
+				p_ptr->total_winner = TRUE;
+			}
+			else
+			{
+#ifdef JP
+				if(one_in_(2))
+					msg_print("サヨナラ!");
+				else
+					msg_print("バンザイ!");
+#else
+				msg_print("SAYONARA!");
+#endif
+				take_hit(DAMAGE_FORCE, 9999, "Seppuku", -1);
+			}
+			
 		break;
 	default:
 #ifdef JP

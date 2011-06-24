@@ -418,7 +418,7 @@ bool teleport_player_aux(int dis, u32b mode)
 	sound(SOUND_TELEPORT);
 
 #ifdef JP
-	if ((p_ptr->pseikaku == SEIKAKU_COMBAT) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
+	if ((p_ptr->pseikaku == SEIKAKU_COMBAT && !IS_COMBAT_NINJA()) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
 		msg_format("『こっちだぁ、%s』", player_name);
 #endif
 
@@ -4878,7 +4878,7 @@ o_name, index_to_label(i),
 #endif
 
 #ifdef JP
-				if ((p_ptr->pseikaku == SEIKAKU_COMBAT) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
+				if ((p_ptr->pseikaku == SEIKAKU_COMBAT && !IS_COMBAT_NINJA()) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
 					msg_print("やりやがったな！");
 #endif
 

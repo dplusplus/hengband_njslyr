@@ -4835,7 +4835,7 @@ msg_print("ウィザードモード突入。");
 #endif
 					else if (p_ptr->pclass == CLASS_NINJA)
 #ifdef JP
-						which_power = "忍術";
+						which_power = "ジツ";
 #else
 						which_power = "ninjutsu";
 #endif
