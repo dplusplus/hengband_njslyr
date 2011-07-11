@@ -5900,6 +5900,14 @@ option_type option_info[] =
 	"ignore_unview",                "Ignore whenever any monster does" },
 #endif
 
+#ifdef JP
+	{ &ninja_atmosphere,               TRUE, OPT_PAGE_TEXT, 2, 14,
+	"ninja_atmosphere",                "ニンジャスレイヤー風メッセージを表示する" },
+#else
+	{ &ninja_atmosphere,               TRUE, OPT_PAGE_TEXT, 2, 14,
+	"ninja_atmosphere",                "NINJA SLAYER-like message" },
+#endif
+
 	/*** Game-Play ***/
 
 #ifdef JP
