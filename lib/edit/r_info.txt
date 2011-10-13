@@ -21703,3 +21703,27 @@ D:キド」が正体不明のニンジャソウルを取り込み地獄の淵から蘇生
 D:した。人間離れした身体能力と全てのニンジャへの激しい憎悪が、
 D:彼の強さの源だ。
 D:(http://d.hatena.ne.jp/NinjaHeads/ ニンジャ名鑑#1)
+
+N:1082:リッチの高僧『デニス』
+E:Dennis, the Guru Lich
+G:L:w
+I:130:50d100:20:85:50
+W:72:2:0:30000:0:0
+B:TOUCH:EXP_80
+B:TOUCH:UN_POWER
+B:TOUCH:LOSE_DEX:2d12
+B:TOUCH:LOSE_DEX:2d12
+F:UNIQUE | MALE | DROP_SKELETON | CAN_SPEAK | RES_TELE
+F:FORCE_SLEEP | FORCE_MAXHP | 
+F:ESCORT | POWERFUL |
+F:ONLY_ITEM | DROP_2D2 | DROP_4D2 | DROP_GOOD | 
+F:SMART | COLD_BLOOD | OPEN_DOOR | BASH_DOOR | 
+F:EVIL | UNDEAD | IM_COLD | 
+F:IM_POIS | RES_NETH | NO_CONF | NO_SLEEP
+S:1_IN_2 | 
+S:BLINK | TELE_TO | BLIND | HOLD | CONF | SCARE | CAUSE_3 | CAUSE_4 | 
+S:BRAIN_SMASH | TRAPS | BA_MANA | 
+S:BO_MANA | BA_NETH | DISPEL | PSY_SPEAR |
+S:S_MONSTERS | S_UNDEAD | S_KIN | ANIM_DEAD
+D:生前の彼は伝説として語られるほどの魔法使いであり、
+D:世界に及ぼした影響は計り知れない。
