@@ -834,7 +834,7 @@ void py_pickup_aux(int o_idx)
 
 	/* Message */
 #ifdef JP
-	if ((o_ptr->name1 == ART_CRIMSON) && (p_ptr->pseikaku == SEIKAKU_COMBAT && !IS_COMBAT_NINJA()))
+	if ((o_ptr->name1 == ART_CRIMSON) && (p_ptr->pseikaku == SEIKAKU_COMBAT))
 	{
 		msg_format("こうして、%sは『クリムゾン』を手に入れた。", player_name);
 		msg_print("しかし今、『混沌のサーペント』の放ったモンスターが、");
@@ -1122,9 +1122,9 @@ static void hit_trap(bool break_trap)
 			{
 #ifdef JP
 				msg_print("落とし戸に落ちた！");
-				if ((p_ptr->pseikaku == SEIKAKU_COMBAT && !IS_COMBAT_NINJA()) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
+				if ((p_ptr->pseikaku == SEIKAKU_COMBAT && !ninja_atmosphere) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
 					msg_print("くっそ〜！");
-				else if(IS_COMBAT_NINJA())
+				else if(ninja_atmosphere)
 					msg_print("ウカツ！");
 					
 #else
@@ -1173,7 +1173,7 @@ static void hit_trap(bool break_trap)
 			{
 #ifdef JP
 				msg_print("落とし穴に落ちてしまった！");
-				if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+				if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 				msg_print("You have fallen into a pit!");
 #endif
@@ -1205,7 +1205,7 @@ static void hit_trap(bool break_trap)
 			{
 #ifdef JP
 				msg_print("スパイクが敷かれた落とし穴に落ちてしまった！");
-				if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+				if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 				msg_print("You fall into a spiked pit!");
 #endif
@@ -1225,7 +1225,7 @@ static void hit_trap(bool break_trap)
 				{
 #ifdef JP
 					msg_print("スパイクが刺さった！");
-				if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+				if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 					msg_print("You are impaled!");
 #endif
@@ -1262,7 +1262,7 @@ static void hit_trap(bool break_trap)
 			{
 #ifdef JP
 			msg_print("スパイクが敷かれた落とし穴に落ちてしまった！");
-			if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+			if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 				msg_print("You fall into a spiked pit!");
 #endif
@@ -1283,7 +1283,7 @@ static void hit_trap(bool break_trap)
 				{
 #ifdef JP
 					msg_print("毒を塗られたスパイクが刺さった！");
-					if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+					if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 					msg_print("You are impaled on poisonous spikes!");
 #endif
@@ -1327,7 +1327,7 @@ static void hit_trap(bool break_trap)
 		{
 #ifdef JP
 			msg_print("何かがピカッと光った！");
-			if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+			if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 			msg_print("There is a flash of shimmering light!");
 #endif
@@ -1356,7 +1356,7 @@ static void hit_trap(bool break_trap)
 		{
 #ifdef JP
 			msg_print("テレポート・トラップにひっかかった！");
-			if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+			if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 			msg_print("You hit a teleport trap!");
 #endif
@@ -1369,7 +1369,7 @@ static void hit_trap(bool break_trap)
 		{
 #ifdef JP
 			msg_print("炎に包まれた！");
-			if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+			if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 			msg_print("You are enveloped in flames!");
 #endif
@@ -1388,7 +1388,7 @@ static void hit_trap(bool break_trap)
 		{
 #ifdef JP
 			msg_print("酸が吹きかけられた！");
-			if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+			if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 			msg_print("You are splashed with acid!");
 #endif
@@ -1409,7 +1409,7 @@ static void hit_trap(bool break_trap)
 			{
 #ifdef JP
 				msg_print("小さなダーツが飛んできて刺さった！");
-				if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+				if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 				msg_print("A small dart hits you!");
 #endif
@@ -1441,7 +1441,7 @@ static void hit_trap(bool break_trap)
 			{
 #ifdef JP
 				msg_print("小さなダーツが飛んできて刺さった！");
-				if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+				if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 				msg_print("A small dart hits you!");
 #endif
@@ -1473,7 +1473,7 @@ static void hit_trap(bool break_trap)
 			{
 #ifdef JP
 				msg_print("小さなダーツが飛んできて刺さった！");
-				if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+				if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 				msg_print("A small dart hits you!");
 #endif
@@ -1505,7 +1505,7 @@ static void hit_trap(bool break_trap)
 			{
 #ifdef JP
 				msg_print("小さなダーツが飛んできて刺さった！");
-				if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+				if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 				msg_print("A small dart hits you!");
 #endif
@@ -1535,7 +1535,7 @@ static void hit_trap(bool break_trap)
 		{
 #ifdef JP
 			msg_print("黒いガスに包み込まれた！");
-			if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+			if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 			msg_print("A black gas surrounds you!");
 #endif
@@ -1551,7 +1551,7 @@ static void hit_trap(bool break_trap)
 		{
 #ifdef JP
 			msg_print("きらめくガスに包み込まれた！");
-			if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+			if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 			msg_print("A gas of scintillating colors surrounds you!");
 #endif
@@ -1567,7 +1567,7 @@ static void hit_trap(bool break_trap)
 		{
 #ifdef JP
 			msg_print("刺激的な緑色のガスに包み込まれた！");
-			if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+			if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 			msg_print("A pungent green gas surrounds you!");
 #endif
@@ -1583,7 +1583,7 @@ static void hit_trap(bool break_trap)
 		{
 #ifdef JP
 			msg_print("奇妙な白い霧に包まれた！");
-			if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+			if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 			msg_print("A strange white mist surrounds you!");
 #endif
@@ -1624,7 +1624,7 @@ msg_print("身の毛もよだつ光景が頭に浮かんだ。");
 		{
 #ifdef JP
 msg_print("まばゆい閃光が走った！");
-if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 			msg_print("There is a bright flash of light!");
 #endif
@@ -1639,7 +1639,7 @@ if(IS_COMBAT_NINJA())msg_print("ウカツ！");
 		{
 #ifdef JP
 			msg_print("けたたましい音が鳴り響いた！");
-			if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+			if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 			msg_print("An alarm sounds!");
 #endif
@@ -1653,7 +1653,7 @@ if(IS_COMBAT_NINJA())msg_print("ウカツ！");
 		{
 #ifdef JP
 			msg_print("大音響と共にまわりの壁が崩れた！");
-			if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+			if(ninja_atmosphere)msg_print("ウカツ！");
 #else
 			msg_print("Suddenly, surrounding walls are opened!");
 #endif
@@ -1673,7 +1673,7 @@ if(IS_COMBAT_NINJA())msg_print("ウカツ！");
 			int lev;
 #ifdef JP
 			msg_print("突然天界の戦争に巻き込まれた！");
-			if(IS_COMBAT_NINJA())msg_print("ウカツ！");
+			if(ninja_atmosphere)msg_print("ブッダ！");
 #else
 			msg_print("Suddenly, you are surrounded by immotal beings!");
 #endif
@@ -1719,7 +1719,7 @@ if(IS_COMBAT_NINJA())msg_print("ウカツ！");
 		case TRAP_PIRANHA:
 		{
 #ifdef JP
-			if(IS_COMBAT_NINJA())
+			if(ninja_atmosphere)
 				msg_print("突然壁から水が溢れ出した！キャバァーン！ピラニアだ！");
 			else
 			msg_print("突然壁から水が溢れ出した！ピラニアがいる！");
@@ -2624,12 +2624,12 @@ static void py_attack_aux(int y, int x, bool *fear, bool *mdeath, s16b hand, int
 					k *= 5;
 					drain_result *= 2;
 #ifdef JP
-					if (IS_COMBAT_NINJA())
+					if (ninja_atmosphere)
 						msg_format("刃が%sに深々と突き刺さった！ ナムアミダブツ！", m_name);
 					else
 					msg_format("刃が%sに深々と突き刺さった！", m_name);
 #else
-					if (IS_COMBAT_NINJA())
+					if (ninja_atmosphere)
 						msg_format("You critically injured %s! NAMUAMI-DABUTSU!", m_name);
 					else
 					msg_format("You critically injured %s!", m_name);

@@ -921,8 +921,6 @@
 #define SEIKAKU_GAMAN	 10
 #define SEIKAKU_MUNCHKIN 11
 
-#define IS_COMBAT_NINJA() (p_ptr->pclass == CLASS_NINJA && p_ptr->pseikaku == SEIKAKU_COMBAT)
-
 /*** Screen Locations ***/
 
 /*

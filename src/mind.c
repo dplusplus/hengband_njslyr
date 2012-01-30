@@ -501,7 +501,7 @@ void mindcraft_info(char *p, int use_mind, int power)
 	    use_mind = MIND_NINJUTSU;
 #ifdef JP
 		
-	    p = IS_COMBAT_NINJA() ? "¥¸¥Ä" : "Ç¦½Ñ";
+	    p = ninja_atmosphere ? "¥¸¥Ä" : "Ç¦½Ñ";
 #else
 	    p = "ninjutsu";
 #endif

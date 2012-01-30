@@ -1718,7 +1718,7 @@ void monster_desc(char *desc, monster_type *m_ptr, int mode)
 #endif
 			}
 
-			else if (IS_COMBAT_NINJA()){
+			else if (ninja_atmosphere){
 #ifdef JP
 				char *t;
 				strcpy(buf, name);

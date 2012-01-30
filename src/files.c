@@ -3383,7 +3383,7 @@ put_str("職業  :", 5, 1);
 	put_str("Class :", 5, 1);
 #endif
 
-	if (IS_COMBAT_NINJA()) {
+	if (ninja_atmosphere) {
 		strcpy(tmp, player_name);
 		strcat(tmp, "=サン");
 	}
@@ -3762,7 +3762,7 @@ void display_player(int mode)
 	{
 		/* Name, Sex, Race, Class */
 #ifdef JP
-		if(IS_COMBAT_NINJA())
+		if(ninja_atmosphere)
 			sprintf(tmp, "%s=サン", player_name);
 		else
 		sprintf(tmp, "%s%s%s", ap_ptr->title, ap_ptr->no == 1 ? "の":"", player_name);
@@ -6844,7 +6844,7 @@ static void print_tomb(void)
 		put_str(buf, 17, 11);
 
 #ifdef JP
-		if(IS_COMBAT_NINJA())
+		if(ninja_atmosphere)
 			msg_format("サヨナラ、%s=サン!", player_name);
 		else
 		msg_format("さようなら、%s!", player_name);

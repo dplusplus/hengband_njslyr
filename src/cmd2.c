@@ -48,7 +48,7 @@ void do_cmd_go_up(void)
 	{
 		/* Success */
 #ifdef JP
-		if ((p_ptr->pseikaku == SEIKAKU_COMBAT && !IS_COMBAT_NINJA()) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
+		if ((p_ptr->pseikaku == SEIKAKU_COMBAT) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
 			msg_print("なんだこの階段は！");
 		else
 			msg_print("上の階に登った。");
@@ -170,7 +170,7 @@ void do_cmd_go_up(void)
 
 	/* Success */
 #ifdef JP
-	if ((p_ptr->pseikaku == SEIKAKU_COMBAT && !IS_COMBAT_NINJA()) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
+	if ((p_ptr->pseikaku == SEIKAKU_COMBAT) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
 		msg_print("なんだこの階段は！");
 	else if (up_num == dun_level)
 		msg_print("地上に戻った。");
@@ -229,7 +229,7 @@ void do_cmd_go_down(void)
 	else if (have_flag(f_ptr->flags, FF_QUEST))
 	{
 #ifdef JP
-		if ((p_ptr->pseikaku == SEIKAKU_COMBAT && !IS_COMBAT_NINJA()) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
+		if ((p_ptr->pseikaku == SEIKAKU_COMBAT) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
 			msg_print("なんだこの階段は！");
 		else
 			msg_print("下の階に降りた。");
@@ -350,7 +350,7 @@ void do_cmd_go_down(void)
 			else
 			{
 #ifdef JP
-				if ((p_ptr->pseikaku == SEIKAKU_COMBAT && !IS_COMBAT_NINJA()) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
+				if ((p_ptr->pseikaku == SEIKAKU_COMBAT) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
 					msg_print("なんだこの階段は！");
 				else
 					msg_print("階段を下りて新たなる迷宮へと足を踏み入れた。");
@@ -4452,7 +4452,7 @@ bool do_cmd_throw_aux(int mult, bool boomerang, int shuriken)
 				if (shuriken)
 				{
 					tdam += ((p_ptr->lev+30)*(p_ptr->lev+30)-900)/55;
-					if (IS_COMBAT_NINJA())
+					if (ninja_atmosphere)
 						msg_print("「イヤーッ！」「グワーッ！」");
 				}
 

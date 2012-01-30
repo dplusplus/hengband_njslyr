@@ -2008,7 +2008,7 @@ msg_format("%^sは恐ろしい血の呪いをあなたにかけた！", m_name);
 		else if (!m_ptr->ml)
 		{
 #ifdef JP
-			if ((p_ptr->pseikaku == SEIKAKU_COMBAT && !IS_COMBAT_NINJA()) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
+			if ((p_ptr->pseikaku == SEIKAKU_COMBAT) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
 				msg_format("せっかくだから%sを殺した。", m_name);
 			else
 msg_format("%sを殺した。", m_name);
@@ -2039,7 +2039,7 @@ msg_format("%sを殺した。", m_name);
 			else
 			{
 #ifdef JP
-				if ((p_ptr->pseikaku == SEIKAKU_COMBAT && !IS_COMBAT_NINJA()) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
+				if ((p_ptr->pseikaku == SEIKAKU_COMBAT) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
 					msg_format("せっかくだから%sを倒した。", m_name);
 				else
 msg_format("%sを倒した。", m_name);
@@ -2053,7 +2053,7 @@ msg_format("%sを倒した。", m_name);
 		else
 		{
 #ifdef JP
-			if ((p_ptr->pseikaku == SEIKAKU_COMBAT && !IS_COMBAT_NINJA()) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
+			if ((p_ptr->pseikaku == SEIKAKU_COMBAT) || (inventory[INVEN_BOW].name1 == ART_CRIMSON))
 				msg_format("せっかくだから%sを葬り去った。", m_name);
 			else
 msg_format("%sを葬り去った。", m_name);
