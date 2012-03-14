@@ -21727,3 +21727,20 @@ S:BO_MANA | BA_NETH | DISPEL | PSY_SPEAR |
 S:S_MONSTERS | S_UNDEAD | S_KIN | ANIM_DEAD
 D:生前の彼は伝説として語られるほどの魔法使いであり、
 D:世界に及ぼした影響は計り知れない。
+
+N:1083:ルンバ
+E:Roomba
+G:g:D
+I:100:1d10:111:1:40
+W:1:1:0:1:0:0
+B:CRUSH:HURT:1
+B:CRUSH:HURT:1
+B:CRUSH:HURT:1
+B:CRUSH:SUPERHURT:1
+F:RAND_50 | FORCE_MAXHP | KILL_BODY | KILL_ITEM | KILL_WALL | REFLECTING |
+F:EMPTY_MIND | COLD_BLOOD | BASH_DOOR | IM_POIS
+F:NO_FEAR | NO_CONF | NO_SLEEP | NONLIVING | RES_SHAR | RES_TELE
+D:$It looks like a huge spiked roller. It was designed to keep this dungeon 
+D:$clean, and you are the biggest spot of dirt in sight.
+D:ブンブンと音を立てる黒い円盤のような物体だ。このダンジョンをきれいに保つよう
+D:作られている。そしてあなたは一番大きなゴミと見なされている。
