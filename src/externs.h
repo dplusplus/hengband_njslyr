@@ -103,6 +103,7 @@ extern cptr chaos_patrons[MAX_PATRON];
 extern int chaos_stats[MAX_PATRON];
 extern int chaos_rewards[MAX_PATRON][20];
 extern martial_arts ma_blows[MAX_MA];
+extern martial_arts sumo_blows[MAX_MA];
 extern int monk_ave_damage[PY_MAX_LEVEL+1][3];
 extern cptr game_inscriptions[];
 extern kamae kamae_shurui[MAX_KAMAE];

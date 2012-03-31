@@ -1437,6 +1437,65 @@ static bool cmd_racial_power_aux(s32b command)
 		}
 		case CLASS_SUMOTORI:
 		{
+			if (p_ptr->riding)
+			{
+#ifdef JP
+				msg_print("乗馬中はできません。");
+#else
+				msg_print("You need to get off a pet.");
+#endif
+				return FALSE;
+			}
+
+			if (command == -3)
+			{
+				int x, y;
+
+				if (!(empty_hands(TRUE) & EMPTY_HAND_RARM))
+				{
+#ifdef JP
+					msg_print("素手じゃないとできません。");
+#else
+					msg_print("You need to be bare hand.");
+#endif
+					return FALSE;
+				}
+				if (!get_rep_dir(&dir, FALSE)) return FALSE;
+				y = py + ddy[dir];
+				x = px + ddx[dir];
+				if (cave[y][x].m_idx)
+				{
+#ifdef JP
+					if (one_in_(2)) msg_print("あーたたたたたたたたたたたたたたたたたたたたたた！！！");
+					else msg_print("オラオラオラオラオラオラオラオラオラオラオラオラ！！！");
+#else
+					if (one_in_(2)) msg_print("Ahhhtatatatatatatatatatatatatatataatatatatattaaaaa!!!!");
+					else msg_print("Oraoraoraoraoraoraoraoraoraoraoraoraoraoraoraoraora!!!!");
+#endif
+
+					py_attack(y, x, 0);
+					if (cave[y][x].m_idx)
+					{
+						handle_stuff();
+						py_attack(y, x, 0);
+					}
+					p_ptr->energy_need += ENERGY_NEED();
+				}
+				else
+				{
+#ifdef JP
+					msg_print("その方向にはモンスターはいません。");
+#else
+					msg_print("You don't see any monster in this direction");
+#endif
+
+					msg_print(NULL);
+				}
+			} else if (command == -4)
+			{
+				rush_attack(NULL);
+			}
+			break;
 		}
 
 		}
@@ -2705,6 +2764,28 @@ strcpy(power_desc[num].name, "速駆け");
 	}
 	case CLASS_SUMOTORI:
 	{
+#ifdef JP
+strcpy(power_desc[num].name, "百裂ハリテ");
+#else
+		strcpy(power_desc[num].name, "Double Attack");
+#endif
+
+		power_desc[num].level = 25;
+		power_desc[num].cost = 30;
+		power_desc[num].stat = A_STR;
+		power_desc[num].fail = 20;
+		power_desc[num++].number = -3;
+#ifdef JP
+strcpy(power_desc[num].name, "スーパー頭突き");
+#else
+		strcpy(power_desc[num].name, "super head-butting");
+#endif
+
+		power_desc[num].level = 45;
+		power_desc[num].cost = 50;
+		power_desc[num].stat = A_STR;
+		power_desc[num].fail = 30;
+		power_desc[num++].number = -4;
 		break;
 	}
 	default:

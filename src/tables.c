@@ -6732,6 +6732,48 @@ martial_arts ma_blows[MAX_MA] =
 
 };
 
+martial_arts sumo_blows[MAX_MA] =
+{
+#ifdef JP
+	{ "%sを殴った。",                          1, 0, 1, 5, 0 },
+	{ "%sに蹴手繰りをくらわした。",            2, 0, 1, 7, 0 },
+	{ "%sに櫓投げをくらわした。",              3, 0, 1, 9, 0 },
+	{ "%sに掛け投げをくらわした。",            5, 5, 2, 4, MA_KNEE },
+	{ "%sに掴み投げをくらわした。",            7, 5, 1, 12, 0 },
+	{ "%sに体当りした。",                      9, 10, 2, 6, 0 },
+	{ "%sを蹴った。",                          11, 10, 3, 6, MA_SLOW },
+	{ "%sに腰投げをくらわした。",              13, 12, 5, 5, 6 },
+	{ "%sに首投げをくらわした。",              16, 15, 5, 6, 8 },
+	{ "%sに下手出し投げをくらわした。",         20, 20, 5, 8, 0 },
+	{ "%sに上手出し投げをくらわした。",         24, 25, 6, 8, 10 },
+	{ "%sに掬い投げをくらわした。",            28, 25, 7, 9, 0 },
+	{ "%sに下手投げをくらわした。",            32, 30, 8, 10, 10 },
+	{ "%sに小手投げをくらわした。",            35, 35, 8, 11, 10 },
+	{ "%sに上手投げをくらわした。",            39, 35, 8, 12, 12 },
+	{ "%sに二丁投げをくらわした。",            43, 35, 9, 12, 16 },
+	{ "%sに一本背負いをくらわした。",          48, 40, 10, 13, 18 },
+#else
+	{ "You punch %s.",                          1, 0, 1, 4, 0 },
+	{ "You kick %s.",                           2, 0, 1, 6, 0 },
+	{ "You strike %s.",                         3, 0, 1, 7, 0 },
+	{ "You hit %s with your knee.",             5, 5, 2, 3, MA_KNEE },
+	{ "You hit %s with your elbow.",            7, 5, 1, 8, 0 },
+	{ "You butt %s.",                           9, 10, 2, 5, 0 },
+	{ "You kick %s.",                           11, 10, 3, 4, MA_SLOW },
+	{ "You uppercut %s.",                       13, 12, 4, 4, 6 },
+	{ "You double-kick %s.",                    16, 15, 5, 4, 8 },
+	{ "You hit %s with a Cat's Claw.",          20, 20, 5, 5, 0 },
+	{ "You hit %s with a jump kick.",           25, 25, 5, 6, 10 },
+	{ "You hit %s with an Eagle's Claw.",       29, 25, 6, 6, 0 },
+	{ "You hit %s with a circle kick.",         33, 30, 6, 8, 10 },
+	{ "You hit %s with an Iron Fist.",          37, 35, 8, 8, 10 },
+	{ "You hit %s with a flying kick.",         41, 35, 8, 10, 12 },
+	{ "You hit %s with a Dragon Fist.",         45, 35, 10, 10, 16 },
+	{ "You hit %s with a Crushing Blow.",       48, 35, 10, 12, 18 },
+#endif
+
+};
+
 int monk_ave_damage[PY_MAX_LEVEL+1][3] =
 {
   {0, 0, 0},

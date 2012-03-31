@@ -2146,6 +2146,8 @@ static void py_attack_aux(int y, int x, bool *fear, bool *mdeath, s16b hand, int
 	else if (mode == HISSATSU_COLD) num_blow = p_ptr->num_blow[hand]+2;
 	else num_blow = p_ptr->num_blow[hand];
 
+	if ((mode == HISSATSU_NYUSIN) && (p_ptr->pclass == CLASS_SUMOTORI)) num_blow = 1;
+
 	/* Hack -- DOKUBARI always hit once */
 	if ((o_ptr->tval == TV_SWORD) && (o_ptr->sval == SV_DOKUBARI)) num_blow = 1;
 
@@ -2249,13 +2251,18 @@ static void py_attack_aux(int y, int x, bool *fear, bool *mdeath, s16b hand, int
 				vorpal_cut = TRUE;
 			else vorpal_cut = FALSE;
 
-			if (monk_attack)
+			if (monk_attack && (mode != HISSATSU_NYUSIN))
 			{
 				int special_effect = 0, stun_effect = 0, times = 0, max_times;
 				int min_level = 1;
 				martial_arts *ma_ptr = &ma_blows[0], *old_ptr = &ma_blows[0];
 				int resist_stun = 0;
 				int weight = 8;
+
+				if (p_ptr->pclass == CLASS_SUMOTORI){
+					ma_ptr = &sumo_blows[0];
+					old_ptr = &sumo_blows[0];
+				}
 
 				if (r_ptr->flags1 & RF1_UNIQUE) resist_stun += 88;
 				if (r_ptr->flags3 & RF3_NO_STUN) resist_stun += 66;
@@ -2277,7 +2284,11 @@ static void py_attack_aux(int y, int x, bool *fear, bool *mdeath, s16b hand, int
 				{
 					do
 					{
-						ma_ptr = &ma_blows[randint0(MAX_MA)];
+						if (p_ptr->pclass == CLASS_SUMOTORI)
+							ma_ptr = &sumo_blows[randint0(MAX_MA)];
+						else
+							ma_ptr = &ma_blows[randint0(MAX_MA)];
+
 						if ((p_ptr->pclass == CLASS_FORCETRAINER) && (ma_ptr->min_level > 1)) min_level = ma_ptr->min_level + 3;
 						else min_level = ma_ptr->min_level;
 					}
@@ -2560,7 +2571,7 @@ static void py_attack_aux(int y, int x, bool *fear, bool *mdeath, s16b hand, int
 				k /= 2;
 			}
 
-			if (mode == HISSATSU_MINEUCHI)
+			if (mode == HISSATSU_MINEUCHI || ((p_ptr->pclass == CLASS_SUMOTORI) && (mode == HISSATSU_NYUSIN)))
 			{
 				int tmp = (10 + randint1(15) + p_ptr->lev / 5);
 

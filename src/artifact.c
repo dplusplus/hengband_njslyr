@@ -3095,6 +3095,14 @@ void random_artifact_resistance(object_type * o_ptr, artifact_type *a_ptr)
 			add_flag(o_ptr->art_flags, TR_AGGRAVATE);
 		}
 	}
+	
+	if (o_ptr->name1 == ART_KESHO)
+	{
+		if (p_ptr->pclass != CLASS_SUMOTORI)
+		{
+			add_flag(o_ptr->art_flags, TR_SPEED);
+		}
+	}
 
 	if (a_ptr->gen_flags & (TRG_XTRA_POWER)) give_power = TRUE;
 	if (a_ptr->gen_flags & (TRG_XTRA_H_RES)) give_resistance = TRUE;
