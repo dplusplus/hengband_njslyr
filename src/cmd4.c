@@ -957,7 +957,7 @@ static void do_cmd_disp_nikki(void)
 	/* Build the filename */
 	path_build(buf, sizeof(buf), ANGBAND_DIR_USER, file_name);
 
-	if (p_ptr->pclass == CLASS_WARRIOR || p_ptr->pclass == CLASS_MONK || p_ptr->pclass == CLASS_SAMURAI || p_ptr->pclass == CLASS_BERSERKER)
+	if (p_ptr->pclass == CLASS_WARRIOR || p_ptr->pclass == CLASS_MONK || p_ptr->pclass == CLASS_SAMURAI || p_ptr->pclass == CLASS_BERSERKER || p_ptr->pclass == CLASS_SUMOTORI)
 		strcpy(tmp,subtitle[randint0(MAX_SUBTITLE-1)]);
 	else if (p_ptr->pclass == CLASS_MAGE || p_ptr->pclass == CLASS_HIGH_MAGE || p_ptr->pclass == CLASS_SORCERER)
 		strcpy(tmp,subtitle[randint0(MAX_SUBTITLE-1)+1]);

@@ -65,6 +65,7 @@ bool object_is_favorite(object_type *o_ptr)
 
 	case CLASS_MONK:
 	case CLASS_FORCETRAINER:
+	case CLASS_SUMOTORI:
 		/* Icky to wield? */
 		if (!(s_info[p_ptr->pclass].w_max[o_ptr->tval-TV_WEAPON_BEGIN][o_ptr->sval]))
 			return FALSE;

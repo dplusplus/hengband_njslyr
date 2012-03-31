@@ -3243,6 +3243,7 @@ void calc_bonuses(void)
 			case CLASS_MONK:
 			case CLASS_FORCETRAINER:
 			case CLASS_BERSERKER:
+			case CLASS_SUMOTORI:
 				if (empty_hands(FALSE) == (EMPTY_HAND_RARM | EMPTY_HAND_LARM))
 				{
 					p_ptr->migite = TRUE;
@@ -3374,6 +3375,8 @@ void calc_bonuses(void)
 				p_ptr->redraw |= PR_STATUS;
 			}
 			p_ptr->see_nocto = TRUE;
+			break;
+		case CLASS_SUMOTORI:
 			break;
 	}
 
@@ -4221,7 +4224,7 @@ void calc_bonuses(void)
 	if (p_ptr->cursed & TRC_TELEPORT) p_ptr->cursed &= ~(TRC_TELEPORT_SELF);
 
 	/* Monks get extra ac for armour _not worn_ */
-	if (((p_ptr->pclass == CLASS_MONK) || (p_ptr->pclass == CLASS_FORCETRAINER)) && !heavy_armor())
+	if (((p_ptr->pclass == CLASS_MONK) || (p_ptr->pclass == CLASS_FORCETRAINER || p_ptr->pclass == CLASS_SUMOTORI)) && !heavy_armor())
 	{
 		if (!(inventory[INVEN_BODY].k_idx))
 		{
@@ -5011,6 +5014,8 @@ void calc_bonuses(void)
 				/* Ninja */
 				case CLASS_NINJA:
 					num = 4; wgt = 20; mul = 1; break;
+				case CLASS_SUMOTORI:
+					num = 5; wgt = 60; mul = 3; break;
 			}
 
 			/* Hex - extra mights gives +1 bonus to max blows */
@@ -5180,6 +5185,7 @@ void calc_bonuses(void)
 			case CLASS_MONK:
 			case CLASS_FORCETRAINER:
 			case CLASS_BERSERKER:
+			case CLASS_SUMOTORI:
 				if ((empty_hands(FALSE) != EMPTY_HAND_NONE) && !buki_motteruka(INVEN_RARM) && !buki_motteruka(INVEN_LARM))
 					p_ptr->riding_ryoute = TRUE;
 				break;
@@ -5202,7 +5208,7 @@ void calc_bonuses(void)
 	}
 
 	/* Different calculation for monks with empty hands */
-	if (((p_ptr->pclass == CLASS_MONK) || (p_ptr->pclass == CLASS_FORCETRAINER) || (p_ptr->pclass == CLASS_BERSERKER)) &&
+	if (((p_ptr->pclass == CLASS_MONK) || (p_ptr->pclass == CLASS_FORCETRAINER) || (p_ptr->pclass == CLASS_BERSERKER) || (p_ptr->pclass == CLASS_SUMOTORI)) &&
 		(empty_hands_status & EMPTY_HAND_RARM) && !p_ptr->hidarite)
 	{
 		int blow_base = p_ptr->lev + adj_dex_blow[p_ptr->stat_ind[A_DEX]];
@@ -5376,7 +5382,7 @@ void calc_bonuses(void)
 		p_ptr->dis_to_d[default_hand] += MAX(bonus_to_d,1);
 	}
 
-	if (((p_ptr->pclass == CLASS_MONK) || (p_ptr->pclass == CLASS_FORCETRAINER) || (p_ptr->pclass == CLASS_BERSERKER)) && (empty_hands(FALSE) == (EMPTY_HAND_RARM | EMPTY_HAND_LARM))) p_ptr->ryoute = FALSE;
+	if (((p_ptr->pclass == CLASS_MONK) || (p_ptr->pclass == CLASS_FORCETRAINER) || (p_ptr->pclass == CLASS_BERSERKER) || (p_ptr->pclass == CLASS_SUMOTORI)) && (empty_hands(FALSE) == (EMPTY_HAND_RARM | EMPTY_HAND_LARM))) p_ptr->ryoute = FALSE;
 
 	/* Affect Skill -- stealth (bonus one) */
 	p_ptr->skill_stl += 1;
@@ -5673,7 +5679,7 @@ void calc_bonuses(void)
 		p_ptr->old_riding_ryoute = p_ptr->riding_ryoute;
 	}
 
-	if (((p_ptr->pclass == CLASS_MONK) || (p_ptr->pclass == CLASS_FORCETRAINER) || (p_ptr->pclass == CLASS_NINJA)) && (monk_armour_aux != monk_notify_aux))
+	if (((p_ptr->pclass == CLASS_MONK) || (p_ptr->pclass == CLASS_FORCETRAINER) || (p_ptr->pclass == CLASS_NINJA) || (p_ptr->pclass == CLASS_SUMOTORI)) && (monk_armour_aux != monk_notify_aux))
 	{
 		if (heavy_armor())
 		{
@@ -6221,7 +6227,7 @@ bool heavy_armor(void)
 {
 	u16b monk_arm_wgt = 0;
 
-	if ((p_ptr->pclass != CLASS_MONK) && (p_ptr->pclass != CLASS_FORCETRAINER) && (p_ptr->pclass != CLASS_NINJA)) return FALSE;
+	if ((p_ptr->pclass != CLASS_MONK) && (p_ptr->pclass != CLASS_FORCETRAINER) && (p_ptr->pclass != CLASS_NINJA) && (p_ptr->pclass != CLASS_SUMOTORI)) return FALSE;
 
 	/* Weight the armor */
 	if(inventory[INVEN_RARM].tval > TV_SWORD) monk_arm_wgt += inventory[INVEN_RARM].weight;

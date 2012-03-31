@@ -59,7 +59,7 @@ F:b:BUILDING_1:3:0:0:0:0:NONE:14
 F:!:FLOOR:3:0:543
 
 # Set of Gauntlets
-?:[AND [EQU $QUEST1 3] [EQU $CLASS Monk ForceTrainer] ]
+?:[AND [EQU $QUEST1 3] [EQU $CLASS Monk ForceTrainer Sumotori] ]
 F:b:BUILDING_1:3:0:0:0:0:NONE:14
 F:!:FLOOR:3:0:126
 
@@ -412,6 +412,11 @@ F:@:FLOOR:3:0:0:0:220
 ?:[AND [EQU $QUEST27 3] [EQU $CLASS Sniper] ]
 F:a:BUILDING_0:3
 F:@:FLOOR:3:0:0:0:50
+
+# Quest 27 rewarding (Sumotori gets the 'Sumo wrestler's loincloth)
+?:[AND [EQU $QUEST27 3] [EQU $CLASS Sumotori] ]
+F:a:BUILDING_0:3
+F:!:FLOOR:3:0:0:0:204
 
 # Quest 27 finished, no new quest is available
 ?:[EQU $QUEST27 4]

@@ -2602,6 +2602,7 @@ void do_cmd_pet(void)
 			case CLASS_MONK:
 			case CLASS_FORCETRAINER:
 			case CLASS_BERSERKER:
+			case CLASS_SUMOTORI:
 				if (empty_hands(FALSE) == (EMPTY_HAND_RARM | EMPTY_HAND_LARM))
 				{
 					if (p_ptr->pet_extra_flags & PF_RYOUTE)

@@ -846,6 +846,8 @@ info[i++] = "あなたは素早く移動することができる。";
 #endif
 			}
 			break;
+		case CLASS_SUMOTORI:
+			break;
 	}
 
 	if (p_ptr->muta1)

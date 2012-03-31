@@ -1435,6 +1435,9 @@ static bool cmd_racial_power_aux(s32b command)
 			energy_use = 0;
 			break;
 		}
+		case CLASS_SUMOTORI:
+		{
+		}
 
 		}
 	}
@@ -1834,6 +1837,7 @@ static bool cmd_racial_power_aux(s32b command)
 						case CLASS_MONK:
 						case CLASS_SAMURAI:
 						case CLASS_FORCETRAINER:
+						case CLASS_SUMOTORI:
 							if (!one_in_(3))
 							{
 								Type = GF_CONFUSION;
@@ -2697,6 +2701,10 @@ strcpy(power_desc[num].name, "®�");
 		power_desc[num].stat = A_DEX;
 		power_desc[num].fail = 0;
 		power_desc[num++].number = -3;
+		break;
+	}
+	case CLASS_SUMOTORI:
+	{
 		break;
 	}
 	default:

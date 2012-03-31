@@ -1661,6 +1661,7 @@ bool create_artifact(object_type *o_ptr, bool a_scroll)
 			case CLASS_SAMURAI:
 			case CLASS_CAVALRY:
 			case CLASS_SMITH:
+			case CLASS_SUMOTORI:
 				artifact_bias = BIAS_WARRIOR;
 				break;
 			case CLASS_MAGE:
