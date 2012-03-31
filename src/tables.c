@@ -3726,6 +3726,18 @@ player_class class_info[MAX_CLASS] =
 		12, 10, 10, 0,  0,  0, 12,  28,
 		2, 20, 40,
 	},
+
+	{
+#ifdef JP
+		"スモトリ",
+#endif
+		"Sumotori",
+
+		{ 3, -1, 1, 3, 3, 1},
+		45, 34, 36, -2, 16, 24, 64, 55,
+		15, 11, 10, 0,  0,  0, 18, 30,
+		8, 20, 30
+	},
 };
 
 player_seikaku seikaku_info[MAX_SEIKAKU] =
@@ -4093,6 +4105,7 @@ s32b realm_choices1[MAX_CLASS] =
 	(CH_NONE),				/* Mirror-master */
 	(CH_NONE),				/* Ninja */
 	(CH_NONE),				/* Sniper */
+	(CH_NONE),				/* Sumotori */
 };
 
 
@@ -4136,6 +4149,7 @@ s32b realm_choices2[MAX_CLASS] =
 	(CH_NONE),				/* Mirror-master */
 	(CH_NONE),				/* Ninja */
 	(CH_NONE),				/* Sniper */
+	(CH_NONE),				/* Sumotori */
 };
 
 
@@ -4675,6 +4689,20 @@ cptr player_title[MAX_CLASS][PY_MAX_LEVEL / 5] =
 		"男爵",
 		"伯爵",
 		"領主",
+	},
+
+	/* Sumotori */
+	{
+		"序ノ口",
+		"序二段",
+		"三段目",
+		"幕下",
+		"十両",
+		"前頭",
+		"小結",
+		"関脇",
+		"大関",
+		"横綱",
 	},
 };
 

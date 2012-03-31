@@ -195,7 +195,7 @@
 /*
  * Maximum number of player "class" types (see "table.c", etc)
  */
-#define MAX_CLASS            28
+#define MAX_CLASS            29
 
 #define MAX_SEIKAKU          12
 
@@ -907,6 +907,7 @@
 #define CLASS_MIRROR_MASTER     25
 #define CLASS_NINJA             26
 #define CLASS_SNIPER            27
+#define CLASS_SUMOTORI          28
 
 #define SEIKAKU_FUTUU	 0
 #define SEIKAKU_CHIKARA	 1
