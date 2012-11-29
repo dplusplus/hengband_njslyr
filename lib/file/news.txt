@@ -1,6 +1,6 @@
 
                   ****************************************
-                  **           Hengband 1.7.2           **
+                  **    Hengband_NJSLYR 2.0.0 - 0.0.1   **
                   ****************************************
 
           Based on Moria:   Copyright (c) 1985 Robert Alan Koeneke
@@ -13,10 +13,9 @@
        New ZAngband code:   Robert Ruehlmann < rr9@thangorodrim.net >
     ZAngband 2.3.0 - ???:   The ZAngband DevTeam
        ZAngband Jap ver.:   Mitsuhiro Itakura <itakura @ users.sourceforge.net>
-
-
            Hengband: Mr.Hoge (echizen @ users.sourceforge.jp) & Many others
                        http://hengband.sourceforge.jp/
 
-            Send bug report to "hengband-dev@lists.sourceforge.jp"
- 
+            Ninja Slayer:    Bradley Bond-san and Philip Ninj@ Morzez-san
+            
+         Hengband_NJSLYR:    dplusplus< sulpsulpd—gmail.com >

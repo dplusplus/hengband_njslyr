@@ -1,6 +1,6 @@
 
                   ***************************************
-                  **           変愚蛮怒  1.7.2         **
+                  **       忍殺蛮怒  2.0.0 - 0.0.1     **
                   ***************************************
 
           Based on Moria:    Copyright (c) 1985 Robert Alan Koeneke
@@ -13,10 +13,8 @@
        New ZAngband code:    Robert Ruehlmann < rr9＠thangorodrim.net >
     ZAngband 2.3.0 - ???:    The ZAngband DevTeam
        ZAngband 日本語版:    板倉充洋 < itakura＠users.sourceforge.net >
-
-
           変愚蛮怒: Mr.hoge (echizen＠users.sourceforge.jp) ＆ 多くの方々
-                     http://hengband.sourceforge.jp/
 
-       変愚蛮怒 は UNIX/X11, Windows, Macintosh で動作しています。
-          バグ情報などは上記 URL にある掲示板へお願いします。
+            Ninja Slayer:    Bradley Bond-san and Philip Ninj@ Morzez-san
+            
+                忍殺蛮怒:    dplusplus< sulpsulpd＠gmail.com >
